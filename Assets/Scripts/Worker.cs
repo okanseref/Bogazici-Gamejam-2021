@@ -36,6 +36,8 @@ public class Worker : MonoBehaviour
     }
     private void Kirbac()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(3);
+
         int Val = Random.RandomRange(8, 22);
         int Val2 = Random.RandomRange(8, 22);
         SickChance += SickKirbac;
@@ -104,6 +106,7 @@ public class Worker : MonoBehaviour
         cureChance = 0;
         StartCoroutine(cureEnum);
         anim.SetBool("SickHealed", true);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(4);
     }
     private void Dead()
     {

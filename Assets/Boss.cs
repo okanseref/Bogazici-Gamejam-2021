@@ -9,6 +9,8 @@ public class Boss : MonoBehaviour
     [SerializeField] GameObject karakter;
     public bool startMove = false;
     public float Strength=5;
+    [SerializeField] GameObject Fade;
+
     void Start()
     {
         
@@ -31,9 +33,18 @@ public class Boss : MonoBehaviour
     }
     private void Kick()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(6);
+
         karakter.GetComponent<Rigidbody>().AddForce(new Vector3(Strength, Strength, 0));
         FindObjectOfType<CinemachineVirtualCamera>().Follow = null;
         //karakter.GetComponent<Rigidbody>().AddRelativeTorque(Vector3.up * 1000);
         karakter.GetComponent<Rigidbody>().freezeRotation = false;
+        Fade.GetComponent<Animator>().SetTrigger("Fade");
+
+        //Invoke("FadeOut", 1f);
+
+    }
+    private void FadeOut()
+    {
     }
 }

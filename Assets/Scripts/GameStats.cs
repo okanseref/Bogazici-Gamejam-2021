@@ -38,6 +38,7 @@ public class GameStats : MonoBehaviour
     [Space(10)]
     [Header("Prefabs")]
     [SerializeField] GameObject WorkerPrefab;
+    [SerializeField] GameObject CanvasWhole;
     [SerializeField] GameObject Boss;
 
     [Space(10)]
@@ -59,11 +60,8 @@ public class GameStats : MonoBehaviour
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
         ArriveBarBackHeight = ArriveBarBack.GetComponent<RectTransform>().sizeDelta.y;
 
-        NewStage(100, 80,2);
-        print(GoldBarBackWidth);
-        newWorkerEnum = NewWorkerEnum();
-        StartCoroutine(newWorkerEnum);
-        Nests[0] = true;
+        NewStage(100, 1,5);
+
     }
 
     // Update is called once per frame
@@ -82,10 +80,11 @@ public class GameStats : MonoBehaviour
         print(BossDemandText.GetComponent<RectTransform>().anchoredPosition);
         bossTick = BossTick();
         StartCoroutine(bossTick);
+        newWorkerEnum = NewWorkerEnum();
+        StartCoroutine(newWorkerEnum);
+        Nests[0] = true;
     }
 
-    Ray ray;
-    RaycastHit hit;
     void Update()
     {
         Worker = 0;
@@ -166,15 +165,25 @@ public class GameStats : MonoBehaviour
                 if (Coin < BossDemand)
                 {
                     //Yeteri kadar biriktiremedik
+                    GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(2);
+
                     Boss.GetComponent<Boss>().startMove = true;
+                    CanvasWhole.SetActive(false);
                     GameObject.FindGameObjectWithTag("Karakter").GetComponent<Karakter>().isActive = false;
                     StopAllCoroutines();
                 }
-                print("OVER");
-                StopCoroutine(bossTick);
+                else
+                {
+                    GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(7);
+                    BossArrive = 30;
+                    Coin -= BossDemand;
+                    NewStage((int)Max+25, (int)BossDemand+20, 30);
+
+                }
             }
         }
     }    
+
     private IEnumerator NewWorkerEnum()
     {
         while (true)
@@ -219,7 +228,8 @@ public class GameStats : MonoBehaviour
     }
     public void NewWorkerYes()
     {
-        for(int i = 0; i < NestCount; i++)
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(0);
+        for (int i = 0; i < NestCount; i++)
         {
             if (Nests[i] == false)
             {
@@ -233,18 +243,23 @@ public class GameStats : MonoBehaviour
     }   
     public void NewWorkerNo()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(0);
         NewWorkerPopUp.SetActive(false);
         newWorkerWaiting = false;
         return;
     }
     public void MarketCloseFunc()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(0);
+
         MarketPanel.SetActive(false);
 
         return;
     }
     public void MarketOpenFunc()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(0);
+
         MarketPanel.SetActive(true);
         MarketPlaceOpen.SetActive(false);
 

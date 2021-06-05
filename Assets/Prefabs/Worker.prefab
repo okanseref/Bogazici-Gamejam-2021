@@ -727,6 +727,7 @@ MonoBehaviour:
   SickKirbac: 3
   cureChance: 0
   cureChanceSpeed: 2
+  particle: {fileID: 7731086006690944237, guid: f401634cf9b06e54096e6bbd2d11093b, type: 3}
   MineIndex: 0
 --- !u!65 &1126132976898310179
 BoxCollider:

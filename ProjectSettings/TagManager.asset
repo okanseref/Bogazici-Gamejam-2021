@@ -8,6 +8,7 @@ TagManager:
   - Worker
   - Karakter
   - WhipButton
+  - cin
   layers:
   - Default
   - TransparentFX

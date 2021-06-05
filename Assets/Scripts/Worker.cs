@@ -12,6 +12,7 @@ public class Worker : MonoBehaviour
     float BaseYield, BaseMaintenance, Maintenance;
     public float SickChance = 0,SickChanceSpeed=0.4f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
     IEnumerator sickEnum,gameEnum,cureEnum;
+    public GameObject particle = null;
     float GameSpeed = 1;
     Animator anim;
     public int MineIndex = 0;
@@ -117,7 +118,7 @@ public class Worker : MonoBehaviour
     }
     private void DestroyGmj()
     {
-        Instantiate(Corpse, gameObject.transform.position, Quaternion.identity);
+        Destroy(Instantiate(Corpse, gameObject.transform.position, Quaternion.identity),3f);
         Destroy(gameObject);
     }
     private void OnMouseDown() //Kýrbaçlama
@@ -197,11 +198,19 @@ public class Worker : MonoBehaviour
         ProfitText.GetComponent<TMPro.TextMeshProUGUI>().text = Profit.ToString("F2");
         MaintenanceText.GetComponent<TMPro.TextMeshProUGUI>().text = Maintenance.ToString("F2");
     }
+    public void ParticleInstance()
+    {
+        Vector3 pos = transform.position;
+        pos.y += 1.25f;
+        pos.z += 2;
+        Destroy(Instantiate(particle, pos, Quaternion.identity),1f);
+    }
     IEnumerator GameEnum()
     {
         while (true)
         {
             yield return new WaitForSeconds(GameSpeed);
+
             print("Game tick");
             GameTick(true);
         }

@@ -13,11 +13,11 @@ public class Karakter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D)&&transform.position.x<32) //Sað limit
+        if (Input.GetKey(KeyCode.D)&&transform.position.x<35) //Sað limit
         {
             transform.position = new Vector3(transform.position.x+0.05f, transform.position.y, transform.position.z);
         }
-        if (Input.GetKey(KeyCode.A) && transform.position.x > 0) //Sol limit
+        if (Input.GetKey(KeyCode.A) && transform.position.x > 4) //Sol limit
         {
             transform.position = new Vector3(transform.position.x-0.05f, transform.position.y, transform.position.z);
         }

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6028901127563842029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6028901127563842027}
+  - component: {fileID: 6028901127563842028}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6028901127563842027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028901127563842029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.357644, y: 2.8751593, z: -4.8700523}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6028901127563842028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6028901127563842029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a01a166df7ad964485d96443242baf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinText: {fileID: 0}
+  MaxText: {fileID: 0}
+  BossDemandText: {fileID: 0}
+  GoldBar: {fileID: 0}
+  GoldBarBack: {fileID: 0}
+  SickCount: {fileID: 0}
+  WorkerCount: {fileID: 0}
+  DeathCount: {fileID: 0}
+  SickImage: {fileID: 0}
+  WorkerImage: {fileID: 0}
+  DeathImage: {fileID: 0}
+  ArriveBarBack: {fileID: 0}
+  ArriveBar: {fileID: 0}
+  NewWorkerPopUp: {fileID: 0}
+  NewWorkerText: {fileID: 0}
+  NewWorkerYesButton: {fileID: 0}
+  NewWorkerNoButton: {fileID: 0}
+  WorkerPrefab: {fileID: 3445330973304855860, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
+  MarketPlaceOpen: {fileID: 0}
+  MarketPanel: {fileID: 0}
+  Coin: 0
+  BossArrive: 0
+  Max: 0
+  BossDemand: 0
+  Worker: 0
+  Sick: 0
+  Death: 0
+  MarketTrigger: 0

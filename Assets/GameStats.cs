@@ -29,12 +29,13 @@ public class GameStats : MonoBehaviour
     public float Coin=0,BossArrive, Max, BossDemand;
     public int Worker, Sick, Death;
     float GoldBarBackWidth, ArriveBarBackHeight, BossStartTime;
+    IEnumerator bossTick;
     void Start()
     {
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
         ArriveBarBackHeight = ArriveBarBack.GetComponent<RectTransform>().sizeDelta.y;
 
-        NewStage(100, 80,10);
+        NewStage(100, 80,2);
         print(GoldBarBackWidth);
     }
 
@@ -52,16 +53,33 @@ public class GameStats : MonoBehaviour
         print(BossDemandText.GetComponent<RectTransform>().localPosition);
         print(BossDemandText.GetComponent<RectTransform>().position);
         print(BossDemandText.GetComponent<RectTransform>().anchoredPosition);
-        StartCoroutine(BossTick(bossArrive));
+        bossTick = BossTick();
+        StartCoroutine(bossTick);
     }
+
+    Ray ray;
+    RaycastHit hit;
     void Update()
     {
+        Worker = 0;
+        Sick = 0;
+        Death = 0;
+        foreach (GameObject element in GameObject.FindGameObjectsWithTag("Worker"))
+        {
+            if (element.gameObject.GetComponent<Worker>().Status.Equals("Working")){
+                Worker++;
+            }else if (element.gameObject.GetComponent<Worker>().Status.Equals("Sick")){
+                Sick++;
+            }else{
+                Death++;
+            }
+        }
         ArriveBar.GetComponent<RectTransform>().sizeDelta = new Vector2( ArriveBar.GetComponent<RectTransform>().sizeDelta.x,(float)(1 - BossArrive / BossStartTime) * ArriveBarBackHeight);
         GoldBar.GetComponent<RectTransform>().sizeDelta = new Vector2((float)Coin/Max* GoldBarBackWidth, GoldBar.GetComponent<RectTransform>().sizeDelta.y);
-        CoinText.GetComponent<TextMeshProUGUI>().text = Coin.ToString();
-        SickCount.GetComponent<TextMeshProUGUI>().text=Sick.ToString();
-        WorkerCount.GetComponent<TextMeshProUGUI>().text= Worker.ToString();
-        DeathCount.GetComponent<TextMeshProUGUI>().text=Death.ToString();
+        CoinText.GetComponent<TextMeshProUGUI>().text = Coin.ToString("F2");
+        SickCount.GetComponent<TextMeshProUGUI>().text="x"+Sick.ToString();
+        WorkerCount.GetComponent<TextMeshProUGUI>().text= "x"+Worker.ToString();
+        DeathCount.GetComponent<TextMeshProUGUI>().text="x"+Death.ToString();
         if (Worker == 0)
         {
             WorkerImage.SetActive(false);
@@ -85,9 +103,30 @@ public class GameStats : MonoBehaviour
         {
             DeathImage.SetActive(true);
         }
+
+        /*ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit)) //Mouse obje üzerine gelinec
+        {
+            if (hit.collider.gameObject.tag == "Worker") {
+                hit.collider.gameObject.GetComponent<Worker>().ToggleActivePanel(true);
+            }
+        }*/
     }
-    // every 2 seconds perform the print()
-    private IEnumerator BossTick(float waitTime)
+    public bool AddCoin(float val)
+    {
+        Coin += val;
+        if (Coin > Max)
+        {
+            Coin = Max;
+        }
+        if (Coin < 0)
+        {
+            Coin = 0;
+            return false;
+        }
+        return true;
+    }
+    private IEnumerator BossTick()
     {
         while (true)
         {
@@ -98,8 +137,7 @@ public class GameStats : MonoBehaviour
             if (BossArrive < 0)
             {
                 print("OVER");
-
-                yield return null;
+                StopCoroutine(bossTick);
             }
         }
     }

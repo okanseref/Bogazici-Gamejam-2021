@@ -3,7 +3,12 @@ guid: c4492fb5ee0af3545a3da95e3c35a857
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kristal
+    second: {fileID: 2100000, guid: e83f1896a38304d49a6d06e8259d46c8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

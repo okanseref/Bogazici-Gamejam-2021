@@ -3,7 +3,12 @@ guid: 550e735ab23837c499deb58d659c04bb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TorchLight
+    second: {fileID: 2100000, guid: 260d305f434a2794a9ca61513331438b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

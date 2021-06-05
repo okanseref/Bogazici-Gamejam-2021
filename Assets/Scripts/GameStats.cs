@@ -50,7 +50,7 @@ public class GameStats : MonoBehaviour
     int NestCount = 6;
     bool[] Nests = new bool[6];
     bool GameActive = true,newWorkerWaiting=false;
-    float newWorkerRate = 10;
+    float newWorkerRate = 2;
     IEnumerator bossTick,newWorkerEnum;
     public bool MarketTrigger = false;
     void Start()

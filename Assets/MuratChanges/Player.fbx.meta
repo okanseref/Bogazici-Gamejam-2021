@@ -1,47 +1,59 @@
 fileFormatVersion: 2
-guid: 06e5e506999f48c43aea9158e8a520ee
+guid: ddc6099543020f54590f9f0b7d455291
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 5832263715085363478
-    second: armatureBase|0Tpose
+      74: 3001765054755464182
+    second: PlayerArmature|0Tpose
   - first:
-      74: 5616554210643061136
-    second: armatureBase|Hit
+      74: 4359434235833535880
+    second: PlayerArmature|Hit
   - first:
-      74: -8113937907147997562
-    second: armatureBase|IcosphereAction
+      74: 2954603635428756761
+    second: PlayerArmature|IcosphereAction
   - first:
-      74: 6546217563134159257
-    second: armatureBase|Idle1-30k
+      74: -1153375797737623752
+    second: PlayerArmature|Idle1-30k
   - first:
-      74: -4373157255885786686
-    second: armatureBase|Idle2-90k
+      74: 753857796967922148
+    second: PlayerArmature|Idle1Player
   - first:
-      74: -4371439100699893195
-    second: armatureBase|Mining
+      74: 4356306155555564699
+    second: PlayerArmature|Idle2-90k
   - first:
-      74: -7839921918291961464
-    second: armatureBase|RestAnim
+      74: 6907922872342549182
+    second: PlayerArmature|Kirbaclama
   - first:
-      74: 5413615384653894139
-    second: armatureBase|RunCycle33k
+      74: -1200820651945381823
+    second: PlayerArmature|Kirbaclama.001
   - first:
-      74: -4189080579132441172
-    second: armatureBase|SickFall
+      74: 1932036820050569295
+    second: PlayerArmature|Mining
   - first:
-      74: 4095306275203567469
-    second: armatureBase|SickLoop
+      74: 524727039692534928
+    second: PlayerArmature|RestAnim
   - first:
-      74: -4026770950158610184
-    second: armatureBase|SphereAction
+      74: -3968130199787307152
+    second: PlayerArmature|RunCycle33k
   - first:
-      74: -8464821006660748501
-    second: armatureBase|Walk30k
+      74: -1293464907493415806
+    second: PlayerArmature|SickFall
   - first:
-      74: 5967646237037646626
-    second: armatureBase|WalkWAxe
+      74: 3710306528061769070
+    second: PlayerArmature|SickLoop
+  - first:
+      74: 6472788786428224257
+    second: PlayerArmature|SphereAction
+  - first:
+      74: 5264888570610122536
+    second: PlayerArmature|Walk30k
+  - first:
+      74: -7288949771699353239
+    second: PlayerArmature|WalkPlayer
+  - first:
+      74: -1254844971910501708
+    second: PlayerArmature|WalkWAxe
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -71,8 +83,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: armatureBase|0Tpose
-      takeName: armatureBase|0Tpose
+      name: PlayerArmature|0Tpose
+      takeName: PlayerArmature|0Tpose
       internalID: 0
       firstFrame: 0
       lastFrame: 1
@@ -100,8 +112,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|Hit
-      takeName: armatureBase|Hit
+      name: PlayerArmature|Hit
+      takeName: PlayerArmature|Hit
       internalID: 0
       firstFrame: 0
       lastFrame: 80
@@ -129,8 +141,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|Idle1-30k
-      takeName: armatureBase|Idle1-30k
+      name: PlayerArmature|IcosphereAction
+      takeName: PlayerArmature|IcosphereAction
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|Idle1-30k
+      takeName: PlayerArmature|Idle1-30k
       internalID: 0
       firstFrame: 0
       lastFrame: 30
@@ -158,8 +199,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|Idle2-90k
-      takeName: armatureBase|Idle2-90k
+      name: PlayerArmature|Idle1Player
+      takeName: PlayerArmature|Idle1Player
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|Idle2-90k
+      takeName: PlayerArmature|Idle2-90k
       internalID: 0
       firstFrame: 0
       lastFrame: 90
@@ -187,11 +257,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|Mining
-      takeName: armatureBase|Mining
+      name: PlayerArmature|Kirbaclama
+      takeName: PlayerArmature|Kirbaclama
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -216,8 +286,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|RestAnim
-      takeName: armatureBase|RestAnim
+      name: PlayerArmature|Kirbaclama.001
+      takeName: PlayerArmature|Kirbaclama.001
       internalID: 0
       firstFrame: 0
       lastFrame: 60
@@ -245,8 +315,66 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|RunCycle33k
-      takeName: armatureBase|RunCycle33k
+      name: PlayerArmature|Mining
+      takeName: PlayerArmature|Mining
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|RestAnim
+      takeName: PlayerArmature|RestAnim
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|RunCycle33k
+      takeName: PlayerArmature|RunCycle33k
       internalID: 0
       firstFrame: 0
       lastFrame: 33
@@ -274,8 +402,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|SickFall
-      takeName: armatureBase|SickFall
+      name: PlayerArmature|SickFall
+      takeName: PlayerArmature|SickFall
       internalID: 0
       firstFrame: 0
       lastFrame: 60
@@ -303,8 +431,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|SickLoop
-      takeName: armatureBase|SickLoop
+      name: PlayerArmature|SickLoop
+      takeName: PlayerArmature|SickLoop
       internalID: 0
       firstFrame: 0
       lastFrame: 60
@@ -332,8 +460,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|Walk30k
-      takeName: armatureBase|Walk30k
+      name: PlayerArmature|SphereAction
+      takeName: PlayerArmature|SphereAction
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|Walk30k
+      takeName: PlayerArmature|Walk30k
       internalID: 0
       firstFrame: 0
       lastFrame: 30
@@ -361,8 +518,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: armatureBase|WalkWAxe
-      takeName: armatureBase|WalkWAxe
+      name: PlayerArmature|WalkPlayer
+      takeName: PlayerArmature|WalkPlayer
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|WalkWAxe
+      takeName: PlayerArmature|WalkWAxe
       internalID: 0
       firstFrame: 0
       lastFrame: 30

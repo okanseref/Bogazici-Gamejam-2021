@@ -38,6 +38,7 @@ public class GameStats : MonoBehaviour
     [Space(10)]
     [Header("Prefabs")]
     [SerializeField] GameObject WorkerPrefab;
+    [SerializeField] GameObject Boss;
 
     [Space(10)]
     [Header("Marketplace")]
@@ -162,6 +163,13 @@ public class GameStats : MonoBehaviour
 
             if (BossArrive < 0)
             {
+                if (Coin < BossDemand)
+                {
+                    //Yeteri kadar biriktiremedik
+                    Boss.GetComponent<Boss>().startMove = true;
+                    GameObject.FindGameObjectWithTag("Karakter").GetComponent<Karakter>().isActive = false;
+                    StopAllCoroutines();
+                }
                 print("OVER");
                 StopCoroutine(bossTick);
             }

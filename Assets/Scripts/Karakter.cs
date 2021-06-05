@@ -6,7 +6,7 @@ public class Karakter : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator anim;
-    bool Walking = false,whipButton=false;
+    public bool Walking = false,whipButton=false,isActive=true;
     [SerializeField ]GameObject whipButtonObject;
     void Start()
     {
@@ -17,6 +17,13 @@ public class Karakter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isActive==false)
+        {
+            anim.SetBool("isWalking", false);
+
+            gameObject.transform.eulerAngles = new Vector3(0, -90, 0);
+            return;
+        }
         Walking = false;
         if (Input.GetKey(KeyCode.D)&&transform.position.x<35) //Sað limit
         {

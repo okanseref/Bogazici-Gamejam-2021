@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6881543638973097974}
   - component: {fileID: 6522580869725829857}
   - component: {fileID: 8115895222622982849}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EfficiencyCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 4882278571045270199}
   - component: {fileID: 1942015195696122547}
   - component: {fileID: 3916726049960181729}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Profit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875255715361950633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0000000032002}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8306567542214183883}
@@ -173,8 +173,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000000043902, y: 0.34575}
-  m_SizeDelta: {x: 1.7019, y: 0.6915}
+  m_AnchoredPosition: {x: 0.065, y: 0.194}
+  m_SizeDelta: {x: 1.2123, y: 0.4926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1942015195696122547
 CanvasRenderer:
@@ -206,15 +206,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: +0.5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e22db060e78c18540bf8fe828b67a93d, type: 2}
+  m_sharedMaterial: {fileID: -5501706619389816370, guid: e22db060e78c18540bf8fe828b67a93d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281244367
-  m_fontColor: {r: 0.8113208, g: 0.60386074, b: 0.17986828, a: 1}
+    rgba: 4280763732
+  m_fontColor: {r: 0.3301887, g: 0.27122644, b: 0.15107691, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
+  m_fontSize: 0.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -284,13 +284,13 @@ GameObject:
   - component: {fileID: 3669693369372912219}
   - component: {fileID: 1026375355553886691}
   - component: {fileID: 8232872831182086361}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3669693369372912219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 415676446522508931}
   - component: {fileID: 7697564588887833418}
   - component: {fileID: 8040031111558144605}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBarBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 1126132976898310179}
   m_Layer: 0
   m_Name: Worker
-  m_TagString: Untagged
+  m_TagString: Worker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,15 +710,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79dfff8002334d448944467a41c3d741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Canvas: {fileID: 3445330973036376214, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  ActivePanel: {fileID: 7860637124613602422, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  PassivePanel: {fileID: 3355546411202704393, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  HealthBarBack: {fileID: 5754388145653643067, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  HealthBar: {fileID: 4054842284596800592, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  EfficiencyText: {fileID: 1354240128743725216, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  EfficiencyBack: {fileID: 8373804269794974234, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  ProfitText: {fileID: 3445330973430557098, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
-  MaintenanceText: {fileID: 1523022778014342046, guid: e92e66a188111114e9082bb73a86ddc6, type: 3}
+  Canvas: {fileID: 6700000197543883081}
+  ActivePanel: {fileID: 6252784923531870898}
+  PassivePanel: {fileID: 9171007220433514379}
+  HealthBarBack: {fileID: 3389990384658773456}
+  HealthBar: {fileID: 4634908317302108517}
+  EfficiencyText: {fileID: 9090180515880427795}
+  EfficiencyBack: {fileID: 18630133736700230}
+  ProfitText: {fileID: 1875255715361950633}
+  MaintenanceText: {fileID: 4320072989430193121}
+  Corpse: {fileID: 2912690286664288699, guid: ee3b10c7dd6e2fd41a2971c60f6fe77c, type: 3}
   Status: 
   SickChance: 0
   SickChanceSpeed: 0.4
@@ -726,6 +727,7 @@ MonoBehaviour:
   SickKirbac: 3
   cureChance: 0
   cureChanceSpeed: 2
+  MineIndex: 0
 --- !u!65 &1126132976898310179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -734,7 +736,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4172894294145110999}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.14149, y: 4.632535, z: 1}
@@ -750,7 +752,7 @@ GameObject:
   - component: {fileID: 3172484225686259150}
   - component: {fileID: 1946506437116625368}
   - component: {fileID: 4190689918161048056}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Maintenance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +767,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4320072989430193121}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000000043992}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000049785336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8306567542214183883}
@@ -773,8 +775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000006035, y: -0.34575}
-  m_SizeDelta: {x: 1.7019, y: 0.6915}
+  m_AnchoredPosition: {x: 0.06500052, y: -0.29859972}
+  m_SizeDelta: {x: 1.2123, y: 0.4926}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1946506437116625368
 CanvasRenderer:
@@ -806,15 +808,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: +0.5
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e22db060e78c18540bf8fe828b67a93d, type: 2}
+  m_sharedMaterial: {fileID: -5501706619389816370, guid: e22db060e78c18540bf8fe828b67a93d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281225679
-  m_fontColor: {r: 0.8117647, g: 0.316411, b: 0.18039215, a: 1}
+    rgba: 4278198682
+  m_fontColor: {r: 0.6037736, g: 0.13125513, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -831,7 +833,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
+  m_fontSize: 0.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -884,7 +886,7 @@ GameObject:
   - component: {fileID: 4306896735470249772}
   - component: {fileID: 5007091760043295294}
   - component: {fileID: 4693631156049344676}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1345,7 @@ GameObject:
   - component: {fileID: 8306567542214183883}
   - component: {fileID: 901595470205780989}
   - component: {fileID: 7056449863798930726}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ActivePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,15 +1395,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e80c84b3980881d4f933f3e2a4a233f6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1452,7 +1454,7 @@ GameObject:
   - component: {fileID: 6771787000838891177}
   - component: {fileID: 5503227373763797907}
   - component: {fileID: 1716013921582662828}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1467,7 +1469,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6700000197543883081}
   m_LocalRotation: {x: -0.051460244, y: -0.000003928345, z: -0.0006554901, w: 0.99867487}
-  m_LocalPosition: {x: 0, y: 0, z: -0.36}
+  m_LocalPosition: {x: 0, y: 0, z: -0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8306567542214183883}
@@ -1477,7 +1479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3.53}
+  m_AnchoredPosition: {x: -0, y: 3.01}
   m_SizeDelta: {x: 2.9573, y: 2.6539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6771787000838891177
@@ -1904,7 +1906,7 @@ GameObject:
   - component: {fileID: 791789469535479383}
   - component: {fileID: 2060411317420578260}
   - component: {fileID: 6381940828990643205}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Efficiency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2069,7 +2071,7 @@ GameObject:
   - component: {fileID: 7942578843777497678}
   - component: {fileID: 2829708549428285626}
   - component: {fileID: 5277702261809055965}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PassivePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2119,7 +2121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.754717, g: 0.24563903, b: 0.58302546, a: 0.078431375}
+  m_Color: {r: 0.754717, g: 0.24563903, b: 0.58302546, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Worker : MonoBehaviour
 {
-    [SerializeField] GameObject Canvas, ActivePanel, PassivePanel, HealthBarBack, HealthBar,EfficiencyText,EfficiencyBack,ProfitText,MaintenanceText;
+    [SerializeField] GameObject Canvas, ActivePanel, PassivePanel, HealthBarBack, HealthBar,EfficiencyText,EfficiencyBack,ProfitText,MaintenanceText,Corpse;
     public string Status;
     float HealthBarWidth;
     float Efficiency, EfficiencyLoss = -0.5f;
@@ -13,9 +13,12 @@ public class Worker : MonoBehaviour
     public float SickChance = 0,SickChanceSpeed=0.4f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
     IEnumerator sickEnum,gameEnum,cureEnum;
     float GameSpeed = 1;
+    Animator anim;
+    public int MineIndex = 0;
     void Start()
     {
         HealthBarWidth = HealthBarBack.GetComponent<RectTransform>().sizeDelta.x;
+        anim = GetComponent<Animator>();
         HealthMax = 100;
         Efficiency = 50;
         EfficiencyText.GetComponent<TMPro.TextMeshProUGUI>().text = ((int)Efficiency).ToString();
@@ -36,7 +39,15 @@ public class Worker : MonoBehaviour
         int Val2 = Random.RandomRange(8, 22);
         SickChance += SickKirbac;
         Damage(Val);
-        EfficiencyChange(Val2);
+        if (Status == "Working")
+        {
+            EfficiencyChange(Val2);
+            anim.SetTrigger("GotHit");
+        }
+        else
+        {
+            Dead();
+        }
 
     }
     private void EfficiencyChange(float val)
@@ -80,6 +91,7 @@ public class Worker : MonoBehaviour
         Maintenance = BaseMaintenance;
         StartCoroutine(sickEnum);
         StartCoroutine(gameEnum);
+        anim.SetInteger("State", 1);
     }
     private void Sick()
     {
@@ -90,21 +102,36 @@ public class Worker : MonoBehaviour
         SickChance = 0;
         cureChance = 0;
         StartCoroutine(cureEnum);
+        anim.SetBool("SickHealed", true);
     }
     private void Dead()
     {
+        StopCoroutine(sickEnum);
+        StopCoroutine(gameEnum);
         Status = "Dead";
         Maintenance = 0;
         Efficiency = 0;
-        StopCoroutine(sickEnum);
-        StopCoroutine(gameEnum);
-
-        //Destroy(gameObject);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().Nests[MineIndex] = false;
+        anim.SetBool("SickHealed", true);
+        Invoke("DestroyGmj",2);
     }
-    private void OnMouseDown()
+    private void DestroyGmj()
+    {
+        Instantiate(Corpse, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+    private void OnMouseDown() //Kýrbaçlama
     {
         if(Status != "New")
         {
+            KirbacKontrol();
+        }
+    }
+    private void KirbacKontrol()
+    {
+        if (Mathf.Abs(GameObject.FindGameObjectWithTag("Karakter").transform.position.x - transform.position.x) < 1)
+        {
+            GameObject.FindGameObjectWithTag("Karakter").GetComponent<Karakter>().Kirbac();
             Kirbac();
         }
     }
@@ -120,6 +147,14 @@ public class Worker : MonoBehaviour
         if (Status != "New")
         {
             ActivePanel.SetActive(false);
+        }
+    }
+    private void Update()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            KirbacKontrol();
         }
     }
     private void FixedUpdate()
@@ -178,7 +213,7 @@ public class Worker : MonoBehaviour
             yield return new WaitForSeconds(SickCheckSeconds);
             print("Sick Checked");
             
-            if (Random.Range(0,100)<SickChance&&SickChance<8) // Çok erken hasta olmasýn
+            if (Random.Range(0,100)<SickChance&&SickChance>8) // Çok erken hasta olmasýn
             {
                 Sick();
                 print("Sicked");
@@ -198,6 +233,8 @@ public class Worker : MonoBehaviour
                 Health = Random.RandomRange(30, 60);
                 Working();
                 print("Cured");
+                anim.SetBool("SickHealed", false);
+
                 StopCoroutine(cureEnum);
             }
         }

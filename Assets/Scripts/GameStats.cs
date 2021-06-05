@@ -48,9 +48,9 @@ public class GameStats : MonoBehaviour
     public int Worker, Sick, Death;
     float GoldBarBackWidth, ArriveBarBackHeight, BossStartTime;
     int NestCount = 6;
-    bool[] Nests = new bool[6];
+    public bool[] Nests = new bool[6];
     bool GameActive = true,newWorkerWaiting=false;
-    float newWorkerRate = 2;
+    float newWorkerRate = 12;
     IEnumerator bossTick,newWorkerEnum;
     public bool MarketTrigger = false;
     void Start()
@@ -102,7 +102,7 @@ public class GameStats : MonoBehaviour
         }
         ArriveBar.GetComponent<RectTransform>().sizeDelta = new Vector2( ArriveBar.GetComponent<RectTransform>().sizeDelta.x,(float)(1 - BossArrive / BossStartTime) * ArriveBarBackHeight);
         GoldBar.GetComponent<RectTransform>().sizeDelta = new Vector2((float)Coin/Max* GoldBarBackWidth, GoldBar.GetComponent<RectTransform>().sizeDelta.y);
-        CoinText.GetComponent<TextMeshProUGUI>().text = Coin.ToString("F2");
+        CoinText.GetComponent<TextMeshProUGUI>().text = Coin.ToString("F1");
         SickCount.GetComponent<TextMeshProUGUI>().text="x"+Sick.ToString();
         WorkerCount.GetComponent<TextMeshProUGUI>().text= "x"+Worker.ToString();
         DeathCount.GetComponent<TextMeshProUGUI>().text="x"+Death.ToString();
@@ -180,7 +180,8 @@ public class GameStats : MonoBehaviour
     }
     private void PutWorker(int nestIndex)
     {
-        GameObject gmj = Instantiate(WorkerPrefab, new Vector3(8+nestIndex*3.5f, 0.72f, -4.92f), new Quaternion(0, 0, 0, 0));
+        GameObject gmj = Instantiate(WorkerPrefab, new Vector3(11+nestIndex*3f, -0.68f, -22.79f), new Quaternion(0, 0, 0, 0));
+        gmj.GetComponent<Worker>().MineIndex = nestIndex;
     }
     private void NewWorker()
     {

@@ -13,7 +13,6 @@ public class Worker : MonoBehaviour
     public float SickChance = 0,SickChanceSpeed=0.4f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
     IEnumerator sickEnum,gameEnum,cureEnum;
     float GameSpeed = 1;
-
     void Start()
     {
         HealthBarWidth = HealthBarBack.GetComponent<RectTransform>().sizeDelta.x;
@@ -27,7 +26,7 @@ public class Worker : MonoBehaviour
         sickEnum = SickChanceEnum();
         gameEnum = GameEnum();
         cureEnum = CureEnum();
-         
+        
         Working(); //Corotinleri baþlatýyor
 
     }
@@ -104,17 +103,24 @@ public class Worker : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Kirbac();
+        if(Status != "New")
+        {
+            Kirbac();
+        }
     }
     private void OnMouseEnter()
     {
-        ActivePanel.SetActive(true);
-
+        if (Status != "New")
+        {
+            ActivePanel.SetActive(true);
+        }
     }
     private void OnMouseExit()
     {
-        ActivePanel.SetActive(false);
-
+        if (Status != "New")
+        {
+            ActivePanel.SetActive(false);
+        }
     }
     private void FixedUpdate()
     {

@@ -22,4 +22,18 @@ public class Karakter : MonoBehaviour
             transform.position = new Vector3(transform.position.x-0.05f, transform.position.y, transform.position.z);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Marketplace")
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().MarketTrigger=true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Marketplace")
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().MarketTrigger = false;
+        }
+    }
 }

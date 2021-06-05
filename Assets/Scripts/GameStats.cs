@@ -26,10 +26,33 @@ public class GameStats : MonoBehaviour
     [Header("Top Left")]
     [SerializeField] GameObject ArriveBarBack;
     [SerializeField] GameObject ArriveBar;
+
+    [Space(10)]
+    [Header("PopUp")]
+    [SerializeField] GameObject NewWorkerPopUp;
+    [SerializeField] GameObject NewWorkerText;
+    [SerializeField] GameObject NewWorkerYesButton;
+    [SerializeField] GameObject NewWorkerNoButton;
+
+
+    [Space(10)]
+    [Header("Prefabs")]
+    [SerializeField] GameObject WorkerPrefab;
+
+    [Space(10)]
+    [Header("Marketplace")]
+    [SerializeField] GameObject MarketPlaceOpen;
+    [SerializeField] GameObject MarketPanel;
+
     public float Coin=0,BossArrive, Max, BossDemand;
     public int Worker, Sick, Death;
     float GoldBarBackWidth, ArriveBarBackHeight, BossStartTime;
-    IEnumerator bossTick;
+    int NestCount = 6;
+    bool[] Nests = new bool[6];
+    bool GameActive = true,newWorkerWaiting=false;
+    float newWorkerRate = 10;
+    IEnumerator bossTick,newWorkerEnum;
+    public bool MarketTrigger = false;
     void Start()
     {
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
@@ -37,6 +60,9 @@ public class GameStats : MonoBehaviour
 
         NewStage(100, 80,2);
         print(GoldBarBackWidth);
+        newWorkerEnum = NewWorkerEnum();
+        StartCoroutine(newWorkerEnum);
+        Nests[0] = true;
     }
 
     // Update is called once per frame
@@ -103,14 +129,14 @@ public class GameStats : MonoBehaviour
         {
             DeathImage.SetActive(true);
         }
-
-        /*ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit)) //Mouse obje üzerine gelinec
+        if (MarketTrigger == true&&!MarketPanel.activeSelf)
         {
-            if (hit.collider.gameObject.tag == "Worker") {
-                hit.collider.gameObject.GetComponent<Worker>().ToggleActivePanel(true);
-            }
-        }*/
+            MarketPlaceOpen.SetActive(true);
+        }
+        else
+        {
+            MarketPlaceOpen.SetActive(false);
+        }
     }
     public bool AddCoin(float val)
     {
@@ -140,5 +166,79 @@ public class GameStats : MonoBehaviour
                 StopCoroutine(bossTick);
             }
         }
+    }    
+    private IEnumerator NewWorkerEnum()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(newWorkerRate);
+            if (newWorkerWaiting == false&& GameActive==true)
+            {
+                NewWorker();
+            }
+        }
+    }
+    private void PutWorker(int nestIndex)
+    {
+        GameObject gmj = Instantiate(WorkerPrefab, new Vector3(8+nestIndex*3.5f, 0.72f, -4.92f), new Quaternion(0, 0, 0, 0));
+    }
+    private void NewWorker()
+    {
+        int count = 0;
+        foreach (GameObject element in GameObject.FindGameObjectsWithTag("Worker"))
+        {
+            if (element.gameObject.GetComponent<Worker>().Status.Equals("Working"))
+            {
+                count++;
+            }
+            else if (element.gameObject.GetComponent<Worker>().Status.Equals("Sick"))
+            {
+                count++;
+            }
+            else
+            {
+                count++;
+            }
+        }
+        if (count >= 6)
+        {
+            return;
+        }
+        newWorkerWaiting = true;
+        NewWorkerPopUp.SetActive(true);
+        NewWorkerText.GetComponent<TextMeshProUGUI>().text = "New worker has arrived. Can he join?";
+    }
+    public void NewWorkerYes()
+    {
+        for(int i = 0; i < NestCount; i++)
+        {
+            if (Nests[i] == false)
+            {
+                Nests[i] = true;
+                PutWorker(i);
+                NewWorkerPopUp.SetActive(false);
+                newWorkerWaiting = false;
+                return;
+            }
+        }
+    }   
+    public void NewWorkerNo()
+    {
+        NewWorkerPopUp.SetActive(false);
+        newWorkerWaiting = false;
+        return;
+    }
+    public void MarketCloseFunc()
+    {
+        MarketPanel.SetActive(false);
+
+        return;
+    }
+    public void MarketOpenFunc()
+    {
+        MarketPanel.SetActive(true);
+        MarketPlaceOpen.SetActive(false);
+
+        return;
     }
 }

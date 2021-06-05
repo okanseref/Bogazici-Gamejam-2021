@@ -20,7 +20,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 4.36
+    m_Value: 1
     min: 0
   scatter:
     m_OverrideState: 0
@@ -40,11 +40,6 @@ MonoBehaviour:
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
-  skipIterations:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 16
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -64,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   color:
     m_OverrideState: 0
@@ -120,4 +115,4 @@ MonoBehaviour:
   m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2

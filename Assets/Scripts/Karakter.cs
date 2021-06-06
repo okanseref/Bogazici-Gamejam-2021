@@ -27,13 +27,13 @@ public class Karakter : MonoBehaviour
         Walking = false;
         if (Input.GetKey(KeyCode.D)&&transform.position.x<35) //Sað limit
         {
-            transform.position = new Vector3(transform.position.x+0.02f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x+0.06f, transform.position.y, transform.position.z);
             gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
             Walking = true;
         }
         if (Input.GetKey(KeyCode.A) && transform.position.x > 4) //Sol limit
         {
-            transform.position = new Vector3(transform.position.x-0.02f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x-0.06f, transform.position.y, transform.position.z);
             gameObject.transform.eulerAngles = new Vector3(0, -90, 0);
 
             Walking = true;

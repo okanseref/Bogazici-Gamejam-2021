@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameStats : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class GameStats : MonoBehaviour
     [SerializeField] GameObject NewWorkerText;
     [SerializeField] GameObject NewWorkerYesButton;
     [SerializeField] GameObject NewWorkerNoButton;
-
+    [SerializeField] GameObject Congrats;
+    [SerializeField] GameObject CongratsOk;
+    [SerializeField] GameObject Tip;
 
 
     [Space(10)]
@@ -46,6 +49,9 @@ public class GameStats : MonoBehaviour
     [Header("Marketplace")]
     [SerializeField] GameObject MarketPlaceOpen;
     [SerializeField] GameObject MarketPanel;
+    [SerializeField] GameObject BuyMedicine;
+    [SerializeField] GameObject BuyEfficiency;
+    [SerializeField] GameObject BuyMaintenance;
 
     public float Coin=0,BossArrive, Max, BossDemand;
     public int Worker, Sick, Death;
@@ -57,15 +63,52 @@ public class GameStats : MonoBehaviour
     IEnumerator bossTick,newWorkerEnum;
     public bool MarketTrigger = false;
     public int yourScore = 0;
+    public bool SickBonus = false, whipBonus = false, healBonus = false;
     void Start()
     {
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
         ArriveBarBackHeight = ArriveBarBack.GetComponent<RectTransform>().sizeDelta.y;
 
-        NewStage(100, 50,45,12);
-
+        NewStage(50, 20,45,12);
+        SetTip("TIP: WHIP TO INCREASE WORKERS EFFICIENCY");
     }
+    public void SetTip(string s)
+    {
+        Tip.SetActive(true);
+        Tip.GetComponent<TextMeshProUGUI>().text = s;
+        Invoke("TipOff", 5f);
+    }
+    private void TipOff()
+    {
+        Tip.SetActive(false);
+    }
+    public void Buy(int i)
+    {
+        if (i == 0 && Coin >= 20)
+        {
+            Coin -= 20;
+            SickBonus = true;
+            BuyMedicine.GetComponent<Button>().interactable = false;
+        }
+        if (i == 0 && Coin >= 15)
+        {
+            Coin -= 15;
+            healBonus = true;
+            BuyEfficiency.GetComponent<Button>().interactable = false;
 
+        }
+        if (i == 0 && Coin >= 25)
+        {
+            Coin -= 25;
+            whipBonus = true;
+            BuyMaintenance.GetComponent<Button>().interactable = false;
+
+        }
+    }
+    public void CongratsF()
+    {
+        Congrats.SetActive(false);
+    }
     // Update is called once per frame
     public void NewStage(int maxLimit,int demand,float bossArrive,int newWorker)
     {
@@ -184,6 +227,7 @@ public class GameStats : MonoBehaviour
                 }
                 else
                 {
+                    Congrats.SetActive(true);
                     GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(7);
                     BossArrive = 30;
                     Coin -= BossDemand;

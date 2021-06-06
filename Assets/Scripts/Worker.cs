@@ -10,13 +10,15 @@ public class Worker : MonoBehaviour
     float Efficiency, EfficiencyLoss = -0.5f;
     float Health,HealthMax,HealthGain=0.3f ;
     float BaseYield, BaseMaintenance, Maintenance;
-    public float SickChance = 0,SickChanceSpeed=0.4f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
+    public float SickChance = 0,SickChanceSpeed=0.24f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
     IEnumerator sickEnum,gameEnum,cureEnum;
     public GameObject particle = null;
     float GameSpeed = 1;
     Animator anim;
     public int MineIndex = 0;
     public Material sickMat,normalMat;
+    public Color colorSick;
+    public Color normalColor;
     void Start()
     {
         HealthBarWidth = HealthBarBack.GetComponent<RectTransform>().sizeDelta.x;
@@ -31,10 +33,10 @@ public class Worker : MonoBehaviour
         sickEnum = SickChanceEnum();
         gameEnum = GameEnum();
         cureEnum = CureEnum();
-        
         Working(); //Corotinleri baþlatýyor
 
     }
+
     private void Kirbac()
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(3);
@@ -46,6 +48,11 @@ public class Worker : MonoBehaviour
         if (Status == "Working")
         {
             EfficiencyChange(Val2);
+            if (GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().whipBonus == true)
+            {
+                EfficiencyChange(Val2/2);
+
+            }
             anim.SetTrigger("GotHit");
         }
         else
@@ -90,13 +97,15 @@ public class Worker : MonoBehaviour
     }
     private void Working()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(9);
+
         Status = "Working";
         Efficiency = Random.RandomRange(50,80);
         Maintenance = BaseMaintenance;
         StartCoroutine(sickEnum);
         StartCoroutine(gameEnum);
         anim.SetInteger("State", 1);
-        //transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[0] = normalMat;
+        transform.GetChild(1).GetComponent<Renderer>().materials[0].color = normalColor;
     }
     private void Sick()
     {
@@ -109,7 +118,7 @@ public class Worker : MonoBehaviour
         StartCoroutine(cureEnum);
         anim.SetBool("SickHealed", true);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(4);
-        //transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[0] = sickMat;
+        transform.GetChild(1).GetComponent<Renderer>().materials[0].color = colorSick;
     }
     private void Dead()
     {
@@ -179,6 +188,10 @@ public class Worker : MonoBehaviour
             if (gain == true)
             {
                 SickChance += SickChanceSpeed;
+                if (GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().SickBonus == true)
+                {
+                    SickChance -= SickChanceSpeed / 2;
+                }
             }
             Profit = (Efficiency / 100 * BaseYield);
         }
@@ -194,6 +207,10 @@ public class Worker : MonoBehaviour
         {
             EfficiencyChange(EfficiencyLoss);
             Heal(HealthGain);
+            if (GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().healBonus == true)
+            {
+                Heal(HealthGain/2);
+            }
             //print("Gain: " +( Profit + Maintenance));
             bool result= GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().AddCoin(Profit+Maintenance);
             if (result == false && Status.Equals("Sick")) // Para bittiyse ölüyor
@@ -201,7 +218,7 @@ public class Worker : MonoBehaviour
                 Dead();
             }
         }
-        ProfitText.GetComponent<TMPro.TextMeshProUGUI>().text = Profit.ToString("F2");
+        ProfitText.GetComponent<TMPro.TextMeshProUGUI>().text = "+"+Profit.ToString("F2");
         MaintenanceText.GetComponent<TMPro.TextMeshProUGUI>().text = Maintenance.ToString("F2");
     }
     public void ParticleInstance()

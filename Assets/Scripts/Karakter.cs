@@ -25,7 +25,7 @@ public class Karakter : MonoBehaviour
             return;
         }
         Walking = false;
-        if (Input.GetKey(KeyCode.D)&&transform.position.x<35) //Sað limit
+        if (Input.GetKey(KeyCode.D)&&transform.position.x<30) //Sað limit
         {
             transform.position = new Vector3(transform.position.x+0.06f, transform.position.y, transform.position.z);
             gameObject.transform.eulerAngles = new Vector3(0, 90, 0);

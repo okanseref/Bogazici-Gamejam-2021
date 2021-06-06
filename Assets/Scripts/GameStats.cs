@@ -69,7 +69,7 @@ public class GameStats : MonoBehaviour
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
         ArriveBarBackHeight = ArriveBarBack.GetComponent<RectTransform>().sizeDelta.y;
 
-        NewStage(50, 20,45,12);
+        NewStage(32, 20, 45 , 12);
         SetTip("TIP: WHIP TO INCREASE WORKERS EFFICIENCY");
     }
     public void SetTip(string s)
@@ -231,7 +231,7 @@ public class GameStats : MonoBehaviour
                     GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(7);
                     BossArrive = 30;
                     Coin -= BossDemand;
-                    NewStage((int)Max+25, (int)BossDemand+20, 30, (int)newWorkerRate+6);
+                    NewStage((int)Max+10, (int)BossDemand+10, BossStartTime+12, (int)newWorkerRate+4);
                     yourScore++;
                 }
             }

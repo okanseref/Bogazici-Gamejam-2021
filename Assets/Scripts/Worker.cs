@@ -10,7 +10,7 @@ public class Worker : MonoBehaviour
     float Efficiency, EfficiencyLoss = -0.5f;
     float Health,HealthMax,HealthGain=0.3f ;
     float BaseYield, BaseMaintenance, Maintenance;
-    public float SickChance = 0,SickChanceSpeed=0.24f,SickCheckSeconds=3,SickKirbac=3f,cureChance=0,cureChanceSpeed=2f;
+    public float SickChance = 0,SickChanceSpeed=0.24f,SickCheckSeconds=6,SickKirbac=2f,cureChance=0,cureChanceSpeed=2f;
     IEnumerator sickEnum,gameEnum,cureEnum;
     public GameObject particle = null;
     float GameSpeed = 1;
@@ -27,7 +27,7 @@ public class Worker : MonoBehaviour
         Efficiency = 50;
         EfficiencyText.GetComponent<TMPro.TextMeshProUGUI>().text = ((int)Efficiency).ToString();
         Health = HealthMax;
-        BaseYield = 1;
+        BaseYield = 1.05f;
         BaseMaintenance = -0.25f;
         Maintenance = BaseMaintenance;
         sickEnum = SickChanceEnum();
@@ -41,7 +41,7 @@ public class Worker : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(3);
 
-        int Val = Random.RandomRange(8, 22);
+        int Val = Random.RandomRange(15, 32);
         int Val2 = Random.RandomRange(8, 22);
         SickChance += SickKirbac;
         Damage(Val);

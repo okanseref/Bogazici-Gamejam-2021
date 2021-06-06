@@ -99,7 +99,7 @@ public class Worker : MonoBehaviour
     }
     private void Working()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(9);
+        
 
         Status = "Working";
         Efficiency = Random.RandomRange(50,80);
@@ -235,6 +235,7 @@ public class Worker : MonoBehaviour
         pos.y += 1.25f;
         pos.z += 2;
         Destroy(Instantiate(particle, pos, Quaternion.identity),1f);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(8);
     }
     IEnumerator GameEnum()
     {

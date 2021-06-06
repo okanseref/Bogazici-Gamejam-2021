@@ -16,14 +16,11 @@ ModelImporter:
       74: 8917715132927180040
     second: armatureBoss|bosskick
   - first:
-      74: 164132055403585885
-    second: armatureBoss|bossWalk
+      74: 3768414905311408947
+    second: armatureBoss|CameraAction
   - first:
       74: -3378837743397355788
     second: armatureBoss|Hit
-  - first:
-      74: -6081673745238790242
-    second: armatureBoss|IcosphereAction
   - first:
       74: 9175474245441313666
     second: armatureBoss|Idle1-30k
@@ -31,17 +28,14 @@ ModelImporter:
       74: 8745126630323054230
     second: armatureBoss|Idle2-90k
   - first:
-      74: -7327235113451080648
-    second: armatureBoss|Kirbaclama.001
-  - first:
       74: -540864926711602384
     second: armatureBoss|Mining
   - first:
-      74: 827810183119000628
-    second: "armatureBoss|Parlak Ta\u015F.001Action"
-  - first:
       74: -1188653797790393276
     second: armatureBoss|RestAnim
+  - first:
+      74: -2432441508297439632
+    second: armatureBoss|RestAnimboss
   - first:
       74: -2384069540666552551
     second: armatureBoss|RunCycle33k
@@ -104,6 +98,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: armatureBoss|RestAnimboss
+      takeName: armatureBoss|RestAnimboss
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

@@ -42,7 +42,12 @@ ModelImporter:
   - first:
       74: 5967646237037646626
     second: armatureBase|WalkWAxe
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 1c3c37ef471912c4db4e968ab08c86e6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

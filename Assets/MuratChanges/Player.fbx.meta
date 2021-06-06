@@ -7,11 +7,23 @@ ModelImporter:
       74: 3001765054755464182
     second: PlayerArmature|0Tpose
   - first:
+      74: 9175557029842984637
+    second: PlayerArmature|0Tpose.001
+  - first:
+      74: 1333946022517084140
+    second: PlayerArmature|Action
+  - first:
+      74: -5058828761539442026
+    second: PlayerArmature|BossKick
+  - first:
+      74: -8219065495069458830
+    second: PlayerArmature|bosskick
+  - first:
+      74: -8731073666582731913
+    second: PlayerArmature|CameraAction
+  - first:
       74: 4359434235833535880
     second: PlayerArmature|Hit
-  - first:
-      74: 2954603635428756761
-    second: PlayerArmature|IcosphereAction
   - first:
       74: -1153375797737623752
     second: PlayerArmature|Idle1-30k
@@ -25,14 +37,14 @@ ModelImporter:
       74: 6907922872342549182
     second: PlayerArmature|Kirbaclama
   - first:
-      74: -1200820651945381823
-    second: PlayerArmature|Kirbaclama.001
-  - first:
       74: 1932036820050569295
     second: PlayerArmature|Mining
   - first:
       74: 524727039692534928
     second: PlayerArmature|RestAnim
+  - first:
+      74: 2892880597668500209
+    second: PlayerArmature|RestAnimboss
   - first:
       74: -3968130199787307152
     second: PlayerArmature|RunCycle33k
@@ -46,8 +58,14 @@ ModelImporter:
       74: 6472788786428224257
     second: PlayerArmature|SphereAction
   - first:
+      74: 133774787834058028
+    second: PlayerArmature|ucmaAnim
+  - first:
       74: 5264888570610122536
     second: PlayerArmature|Walk30k
+  - first:
+      74: -2859567149993257422
+    second: PlayerArmature|WalkBoss
   - first:
       74: -7288949771699353239
     second: PlayerArmature|WalkPlayer
@@ -83,18 +101,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PlayerArmature|0Tpose
-      takeName: PlayerArmature|0Tpose
+      name: PlayerArmature|Action
+      takeName: PlayerArmature|Action
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 296
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -146,6 +164,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 0
       lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PlayerArmature|ucmaAnim
+      takeName: PlayerArmature|ucmaAnim
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

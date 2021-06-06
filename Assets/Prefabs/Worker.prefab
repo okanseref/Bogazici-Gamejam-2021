@@ -729,6 +729,8 @@ MonoBehaviour:
   cureChanceSpeed: 2
   particle: {fileID: 7731086006690944237, guid: f401634cf9b06e54096e6bbd2d11093b, type: 3}
   MineIndex: 0
+  sickMat: {fileID: 2100000, guid: f944a0bada1c53c44ace7d7ee37c6620, type: 2}
+  normalMat: {fileID: 2100000, guid: 1c3c37ef471912c4db4e968ab08c86e6, type: 2}
 --- !u!65 &1126132976898310179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1779,7 +1781,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4835078630258379571, guid: 06e5e506999f48c43aea9158e8a520ee, type: 3}
+  - {fileID: 2100000, guid: 1c3c37ef471912c4db4e968ab08c86e6, type: 2}
   - {fileID: -5637652675625914632, guid: 06e5e506999f48c43aea9158e8a520ee, type: 3}
   - {fileID: -8848810374240701247, guid: 06e5e506999f48c43aea9158e8a520ee, type: 3}
   - {fileID: -1580535799172915004, guid: 06e5e506999f48c43aea9158e8a520ee, type: 3}

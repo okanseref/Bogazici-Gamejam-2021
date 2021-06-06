@@ -16,6 +16,7 @@ public class Worker : MonoBehaviour
     float GameSpeed = 1;
     Animator anim;
     public int MineIndex = 0;
+    public Material sickMat,normalMat;
     void Start()
     {
         HealthBarWidth = HealthBarBack.GetComponent<RectTransform>().sizeDelta.x;
@@ -95,6 +96,7 @@ public class Worker : MonoBehaviour
         StartCoroutine(sickEnum);
         StartCoroutine(gameEnum);
         anim.SetInteger("State", 1);
+        //transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[0] = normalMat;
     }
     private void Sick()
     {
@@ -107,6 +109,7 @@ public class Worker : MonoBehaviour
         StartCoroutine(cureEnum);
         anim.SetBool("SickHealed", true);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(4);
+        //transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().materials[0] = sickMat;
     }
     private void Dead()
     {

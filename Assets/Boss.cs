@@ -25,12 +25,15 @@ public class Boss : MonoBehaviour
         if (startMove)
         {
             transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+            GetComponent<Animator>().SetBool("isWalking",true);
         }
         if (startMove ==true&& Mathf.Abs(karakter.transform.position.x - transform.position.x) < 2.5f)
         {
             print("Triggered");
             GetComponent<Animator>().SetTrigger("Kick");
+            GetComponent<Animator>().SetBool("isWalking",false);
             Invoke("Kick", 1.3f);
+            Invoke("TriggerAnim", 1.3f);
             startMove = false;
         }
     }
@@ -46,6 +49,10 @@ public class Boss : MonoBehaviour
 
         Invoke("FadeOutEbd", 3f);
 
+    }
+    void TriggerAnim()
+    {
+        karakter.GetComponent<Animator>().SetTrigger("fly");
     }
     private void FadeOutEbd()
     {

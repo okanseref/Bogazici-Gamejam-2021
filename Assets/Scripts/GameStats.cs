@@ -90,14 +90,14 @@ public class GameStats : MonoBehaviour
             SickBonus = true;
             BuyMedicine.GetComponent<Button>().interactable = false;
         }
-        if (i == 0 && Coin >= 15)
+        if (i == 1 && Coin >= 15)
         {
             Coin -= 15;
             healBonus = true;
             BuyEfficiency.GetComponent<Button>().interactable = false;
 
         }
-        if (i == 0 && Coin >= 25)
+        if (i == 2 && Coin >= 25)
         {
             Coin -= 25;
             whipBonus = true;

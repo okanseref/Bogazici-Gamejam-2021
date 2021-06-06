@@ -1,7 +1,9 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class Boss : MonoBehaviour
     public bool startMove = false;
     public float Strength=5;
     [SerializeField] GameObject Fade;
-
+    [SerializeField] GameObject YourScore;
+    [SerializeField] GameObject BestScore;
     void Start()
     {
         
@@ -41,10 +44,21 @@ public class Boss : MonoBehaviour
         karakter.GetComponent<Rigidbody>().freezeRotation = false;
         Fade.GetComponent<Animator>().SetTrigger("Fade");
 
-        //Invoke("FadeOut", 1f);
+        Invoke("FadeOutEbd", 3f);
 
     }
-    private void FadeOut()
+    private void FadeOutEbd()
     {
+        YourScore.GetComponent<TextMeshProUGUI>().text = "Your Score: "+GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().yourScore;
+
+        BestScore.GetComponent<TextMeshProUGUI>().text = "Best Score: " + PlayerPrefs.GetInt("bestscore", 0);
+        YourScore.SetActive(true);
+        BestScore.SetActive(true);
+        Invoke("ReturnToMenu", 6f);
+
+    }
+    private void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

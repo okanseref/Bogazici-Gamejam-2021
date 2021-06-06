@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/MuratChanges/mainmenu.unity
+    guid: a9be303f4a3e3ca4fa38130cb334c25a
+  - enabled: 1
+    path: Assets/MuratChanges/deneme.unity
+    guid: 1a7b2ba6fdf66ca49b05932d7f4f6aeb
   m_configObjects: {}

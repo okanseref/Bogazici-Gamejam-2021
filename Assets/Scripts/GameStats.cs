@@ -35,6 +35,7 @@ public class GameStats : MonoBehaviour
     [SerializeField] GameObject NewWorkerNoButton;
 
 
+
     [Space(10)]
     [Header("Prefabs")]
     [SerializeField] GameObject WorkerPrefab;
@@ -52,21 +53,23 @@ public class GameStats : MonoBehaviour
     int NestCount = 6;
     public bool[] Nests = new bool[6];
     bool GameActive = true,newWorkerWaiting=false;
-    float newWorkerRate = 12;
+    float newWorkerRate = 8;
     IEnumerator bossTick,newWorkerEnum;
     public bool MarketTrigger = false;
+    public int yourScore = 0;
     void Start()
     {
         GoldBarBackWidth = GoldBarBack.GetComponent<RectTransform>().sizeDelta.x;
         ArriveBarBackHeight = ArriveBarBack.GetComponent<RectTransform>().sizeDelta.y;
 
-        NewStage(100, 1,5);
+        NewStage(100, 50,45,12);
 
     }
 
     // Update is called once per frame
-    public void NewStage(int maxLimit,int demand,float bossArrive)
+    public void NewStage(int maxLimit,int demand,float bossArrive,int newWorker)
     {
+        newWorkerRate = UnityEngine.Random.RandomRange(newWorker-2,newWorker+4);
         BossStartTime = bossArrive;
         BossArrive = bossArrive;
         Max = maxLimit;
@@ -84,7 +87,14 @@ public class GameStats : MonoBehaviour
         StartCoroutine(newWorkerEnum);
         Nests[0] = true;
     }
-
+    private void Pause()
+    {
+        Time.timeScale = 0;
+    }    
+    private void Resume()
+    {
+        Time.timeScale = 1;
+    }
     void Update()
     {
         Worker = 0;
@@ -177,8 +187,8 @@ public class GameStats : MonoBehaviour
                     GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(7);
                     BossArrive = 30;
                     Coin -= BossDemand;
-                    NewStage((int)Max+25, (int)BossDemand+20, 30);
-
+                    NewStage((int)Max+25, (int)BossDemand+20, 30, (int)newWorkerRate+6);
+                    yourScore++;
                 }
             }
         }

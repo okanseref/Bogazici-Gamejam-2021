@@ -57,6 +57,8 @@ public class Worker : MonoBehaviour
         }
         else
         {
+            StopCoroutine(cureEnum);
+            StopCoroutine(gameEnum);
             Dead();
         }
 
@@ -109,6 +111,7 @@ public class Worker : MonoBehaviour
     }
     private void Sick()
     {
+
         Status = "Sick";
         Maintenance *= 3;
         Efficiency = 0;
@@ -118,6 +121,11 @@ public class Worker : MonoBehaviour
         StartCoroutine(cureEnum);
         anim.SetBool("SickHealed", true);
         GameObject.FindGameObjectWithTag("GameController").GetComponent<SoundControl>().PlaySound(4);
+        if (PlayerPrefs.GetInt("FirstSick", 0) == 0)
+        {
+            PlayerPrefs.SetInt("FirstSick", 1);
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStats>().SetTip("TIP: SICK MEMBERS HAVE MORE MAINTENANCE AND NO INCOME");
+        }
         transform.GetChild(1).GetComponent<Renderer>().materials[0].color = colorSick;
     }
     private void Dead()
